@@ -1,0 +1,32 @@
+#response .col-8 {
+  /* background-color: rgb(173, 241, 146); */
+  margin-top: 5px;
+  /* max-width: 1000px; */
+}
+
+#response .total-question {
+  min-height: 50px;
+  background-color: rgb(160, 223, 145);
+}
+
+#response .middlehi {
+  border-radius: 20px;
+  margin-top: 2px;
+  background-color: rgb(189, 245, 247);
+}
+
+#response .footerhi {
+  background-color: rgb(238, 187, 67);
+  border-radius: 5px;
+}
+
+#response #button1 {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  float: left;
+}
+#response #button2 {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  float: right;
+}

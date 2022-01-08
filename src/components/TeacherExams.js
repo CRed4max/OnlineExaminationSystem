@@ -1,94 +1,105 @@
-import React, { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, onValue, orderByChild, query, equalTo, get} from "firebase/database";
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
+import {
+  getDatabase,
+  ref,
+  orderByChild,
+  query,
+  equalTo,
+  get,
+} from "firebase/database";
+// import { useHistory } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import "../style/TeacherExams.css";
 
-const TeacherExams = () => {
-    const auth = getAuth();
-    // const {email} = auth.currentUser;
-    const emailId = "dkumar25212@gmail.com";
-    const [examsData, setExamsData] = useState();
-    console.log(examsData);
-    const db = getDatabase();
-    useEffect(() => {
-        // const arr = [];
-        const que = query(ref(db, "exams"), orderByChild("creatorEmail"), equalTo(emailId));
-        var data;
-        get(que)
-        .then((snapshot)=>{
-            // console.log(snapshot.val());
-            data = snapshot.val();
-            console.log(data);
-            
+const TeacherExams = (props) => {
+  const emailId = props.emailId;
+  const [examsData, setExamsData] = useState();
+  console.log(examsData);
+  const db = getDatabase();
+  useEffect(() => {
+    console.log(emailId);
+    const que = query(
+      ref(db, "exams"),
+      orderByChild("creatorEmail"),
+      equalTo(emailId)
+    );
+    var data;
+    get(que).then((snapshot) => {
+      // console.log(snapshot.val());
+      data = snapshot.val();
+      console.log(data);
+    });
+    // console.log(data);
 
+    setTimeout(() => {
+      console.log("hello");
+      setExamsData(data);
+      console.log(data);
+    }, 2000);
+  }, [db, emailId]);
 
-            // Object.keys(data).map((id, index) => {
-            //     console.log("yes")
-            //     var temp = {
-            //         examId: id,
-            //         val : data[id]
-            //     }
+  return (
+    <div className="teacherExam">
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
+      <div id="teacher-header" className="d-flex justify-content-md-center">
+        <h1 id="header">You Created</h1>
+        <Link to="/createExam">
+          <button className="btn btn-create">Create Exam</button>
+        </Link>
+      </div>
 
-            //     console.log(temp);
-
-            //     arr.push(temp);
-                
-            // })
-
-        });
-        // console.log(data);
-        
-        setTimeout(() => {
-            console.log("hello");
-            setExamsData(data);
-            console.log(data)
-        }, 10000);
-
-        console.log(examsData);
-
-    }, [emailId])
-
-    return (
-        <div>
-            <Link to="/createExam">
-                <button className='submit'>
-                    Create Exam
-                </button>
-            </Link><hr></hr><hr></hr>
-
-            <div style={{marginTop: "100px"}}>
-            <table className='styled-table1'>
-                <thead>
-                    <tr>
-                        <th style={{textAlign: "center"}}>No.</th>
-                        <th style={{textAlign: "center"}}>Exam Name</th>
-                        <th style={{textAlign: "center"}}>Exam Id</th>
-                        <th style={{textAlign: "center"}}>Exam Password</th>
-                        <th style={{textAlign: "center"}}>Actions</th>
+      <div style={{ marginTop: "20px" }}>
+        {examsData == null ? (
+          <>Loading..........</>
+        ) : (
+          <div class="table-responsive">
+            <table className="styled-table">
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "center" }}>No.</th>
+                  <th style={{ textAlign: "center" }}>Exam Name</th>
+                  <th style={{ textAlign: "center" }}>Exam Id</th>
+                  <th style={{ textAlign: "center" }}>Exam Password</th>
+                  <th style={{ textAlign: "center" }}>Actions</th>
+                  <th style={{ textAlign: "center" }}>Leaderboard</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(examsData).map((id, index) => {
+                  return (
+                    <tr key={id}>
+                      <th scope="row">{index + 1}</th>
+                      <td>{examsData[id].examName}</td>
+                      <td>{examsData[id].examId}</td>
+                      <td>{examsData[id].password}</td>
+                      <td>
+                        <Link to={"/viewExam/" + id}>
+                          <button className="btn btn-view">View Exam</button>
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={"/teacherLeaderboard/" + id}>
+                          <button className="btn btn-delete">
+                            Leaderboard
+                          </button>
+                        </Link>
+                      </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {examsData == null?<>null hai bhai</>:
-                    Object.keys(examsData).map((id, index) => {
-                        return (
-                            <tr key = {id}>
-                                <th scope="row">{index+1}.</th>
-                                <td>{examsData[id].examName}</td>
-                                <td>{examsData[id].examId}</td>
-                                <td>{examsData[id].password}</td>
-                            </tr>
-                        )
-                    })
-}
-                    
-                </tbody>
+                  );
+                })}
+              </tbody>
             </table>
-        </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
-
-        </div>
-    )
-}
-
-export default TeacherExams
+export default TeacherExams;
