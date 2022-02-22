@@ -43,15 +43,16 @@ function Navbar(props) {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="d-flex">
+        <div className="sticky-top">
           <div className="navbar">
             <Link to="#" className="menu-bars">
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <h1 id="name" className="col-2 justify-content-md-center">
+            <h1 id="name" className="col-8 justify-content-md-center">
+              <img className="col-2 justify-content-md-center" src={photoURL} />
               {displayName}
             </h1>
-            <img className="col-2 justify-content-md-center" src={photoURL} />
+            {/* <img className="col-2 justify-content-md-center" src={photoURL} /> */}
             <Link to="/">
               <button
                 className="sign-out col-1.5 justify-content-md-center"

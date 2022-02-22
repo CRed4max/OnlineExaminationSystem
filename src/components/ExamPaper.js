@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import "../style/ExamPaper.css";
 import { QuestionRadio } from "./QuestionRadio";
+import { useHistory } from "react-router-dom";
 
-const ExamPaper = () => {
+const ExamPaper = (props) => {
+  const userId = props.userId;
+  console.log(userId);
   const { examId } = useParams();
   const [currInd, setcurrInd] = useState(0);
   const [array, setArray] = useState([]);
   const [indexRed, setindexRed] = useState(0);
   const [state, setState] = useState({});
+  const [responsestate, setresponseState] = useState({});
   const [stateLength, setstateLength] = useState();
   const db = getDatabase();
+  const history = useHistory();
+
   useEffect(() => {
     const dbref = ref(db, `questions/` + examId);
     var data;
@@ -25,6 +31,7 @@ const ExamPaper = () => {
         let x = Object.keys(data).length;
         setstateLength(x);
         setState(data);
+        setresponseState(data);
         Object.keys(data).map((id, index) => arr.push(id));
         setArray(arr);
         // console.log(data)
@@ -34,6 +41,56 @@ const ExamPaper = () => {
       }
     );
   }, [examId, db]);
+
+  const changeresponseInput = (e) => {
+    console.log(responsestate);
+    // here sending qid was not possible so qid is sent with variable "name"
+    // whereever the need of qid id, I am using "name"
+    const { name, value, qid } = e.target;
+    console.log(qid, name, value);
+    const tempAns = {
+      questionStatement: responsestate[name].questionStatement,
+      option1: responsestate[name].option1,
+      option2: responsestate[name].option2,
+      option3: responsestate[name].option3,
+      option4: responsestate[name].option4,
+      answer: responsestate[name].answer,
+      marks: responsestate[name].marks,
+      negative: responsestate[name].negative,
+      answered: value,
+    };
+
+    responsestate[name] = tempAns;
+    // setresponseState({ ...responsestate, [responsestate[qid]]: tempAns });
+
+    console.log(responsestate);
+  };
+
+  const submitResponse = (e) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure to end test ?")) {
+      const dbref = ref(db, "response/" + examId + "/" + userId);
+      set(dbref, responsestate);
+
+      const dbref1 = ref(db, "exams/" + examId);
+      const dbref2 = ref(db, "student/" + userId + "/" + examId);
+      onValue(
+        dbref1,
+        (snap) => {
+          var data = snap.val();
+          set(dbref2, data);
+        },
+        {
+          onlyOnce: true,
+        }
+      );
+
+      setTimeout(() => {
+        history.push("/student");
+      }, 1000);
+    }
+    // console.log(examId);
+  };
 
   const previousQuestion = () => {
     document.getElementById(currInd).style.display = "none";
@@ -59,9 +116,15 @@ const ExamPaper = () => {
   //   console.log(array);
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       {/* <QuestionRadio></QuestionRadio> */}
       {/* {console.log(array, state)} */}
+
+      {/* {console.log(new Date().toISOString().slice(0, 10)); */}
       <div className="d-flex my-2">
         <div className="col-2"></div>
         <div id="paper" className="justify-content-md-center col-8 bg-light">
@@ -71,7 +134,12 @@ const ExamPaper = () => {
             </div>
             <div className="col-4">
               <Link to={"/giveExam"}>
-                <button className="btn btn-give btn-danger">End Test</button>
+                <button
+                  onClick={submitResponse}
+                  className="btn btn-give btn-danger"
+                >
+                  End Test
+                </button>
               </Link>
             </div>
           </div>
@@ -79,17 +147,18 @@ const ExamPaper = () => {
           {array.length === 0 ? (
             <>Loading..........</>
           ) : (
-              <div>
-                {Object.keys(state).map((id, index) => {
-                  return (
-                    <QuestionRadio
-                      i={index}
-                      id={id}
-                      state={state}
-                    ></QuestionRadio>
-                  );
-                })}
-              </div>
+            <div>
+              {Object.keys(state).map((id, index) => {
+                return (
+                  <QuestionRadio
+                    i={index}
+                    id={id}
+                    state={state}
+                    func={changeresponseInput}
+                  ></QuestionRadio>
+                );
+              })}
+            </div>
           )}
 
           <hr></hr>

@@ -10,6 +10,9 @@ import {
   get,
 } from "firebase/database";
 import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { storeCredential } from "./actions/index";
+
 import AddEditExam from "./components/AddEditExam";
 import AddEditQuestion from "./components/AddEditQuestion";
 import ExamInstructions from "./components/ExamInstructions";
@@ -24,8 +27,17 @@ import ViewExam from "./components/ViewExam";
 import { useHistory } from "react-router-dom";
 import StudentLeaderboard from "./components/StudentLeaderboard";
 import TeacherLeaderboard from "./components/TeacherLeaderboard";
+import StudentScore from "./components/StudentScore";
 
 function App() {
+  const [userCurrent, setuserCurrent] = useState(
+    useSelector((state) => state.StoreCredntials)
+  );
+  const dispatch = useDispatch();
+
+  console.log(userCurrent);
+
+  const [userId, setUserId] = useState("");
   const [emailId, setEmailId] = useState("");
   const [profileName, setprofileName] = useState("");
   const [profilePhoto, setprofilePhoto] = useState("");
@@ -36,6 +48,18 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        const obj = {
+          userId: user.uid,
+          emailId: user.email,
+          profileName: user.displayName,
+          profilePhoto: user.photoURL,
+        };
+        setuserCurrent(obj);
+        // dispatch(storeCredential(obj));
+
+        console.log(userCurrent);
+
+        setUserId(user.uid);
         setEmailId(user.email);
         setprofileName(user.displayName);
         setprofilePhoto(user.photoURL);
@@ -55,6 +79,7 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Navbar
+              userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}
@@ -62,6 +87,7 @@ function App() {
           </Route>
           <Route exact path="/student">
             <StudentExams
+              userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}
@@ -69,37 +95,87 @@ function App() {
           </Route>
           <Route exact path="/teacher">
             <TeacherExams
+              userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}
             />
           </Route>
           <Route exact path="/createExam">
-            <AddEditExam emailId={emailId} />
+            <AddEditExam
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            />
           </Route>
           <Route exact path="/viewExam/:examId">
-            <ViewExam emailId={emailId}></ViewExam>
+            <ViewExam
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></ViewExam>
           </Route>
           <Route exact path="/addQuestion/:examId/:qid">
-            <AddEditQuestion emailId={emailId}></AddEditQuestion>
+            <AddEditQuestion
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></AddEditQuestion>
           </Route>
           <Route exact path="/addQuestion/:examId/:qid">
-            <AddEditQuestion emailId={emailId}></AddEditQuestion>
+            <AddEditQuestion
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></AddEditQuestion>
           </Route>
           <Route exact path="/giveExam">
-            <GiveExam emailId={emailId}></GiveExam>
+            <GiveExam
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></GiveExam>
           </Route>
-          <Route exact path="/examInstructions/:examId">
-            <ExamInstructions emailId={emailId}></ExamInstructions>
+          <Route exact path="/examInstructions/:examId/:userId">
+            <ExamInstructions
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></ExamInstructions>
           </Route>
           <Route exact path="/examPaper/:examId">
-            <ExamPaper emailId={emailId}></ExamPaper>
+            <ExamPaper
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></ExamPaper>
           </Route>
           <Route exact path="/studentResponse/:examId/:userId">
-            <ExamResponse></ExamResponse>
+            <ExamResponse
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></ExamResponse>
+          </Route>
+          <Route exact path="/studentScore/:userId/:examId">
+            <StudentScore
+              userId={userId}
+              emailId={emailId}
+              profileName={profileName}
+              profilePhoto={profilePhoto}
+            ></StudentScore>
           </Route>
           <Route exact path="/studentLeaderboard/:examId">
             <StudentLeaderboard
+              userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}
@@ -107,6 +183,7 @@ function App() {
           </Route>
           <Route exact path="/teacherLeaderboard/:examId">
             <TeacherLeaderboard
+              userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}

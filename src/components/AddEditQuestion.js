@@ -18,7 +18,7 @@ const intialState = {
   negative: "",
 };
 
-const AddEditQuestion = () => {
+const AddEditQuestion = (props) => {
   const { examId, qid } = useParams();
   // console.log(examId);
 
@@ -105,7 +105,11 @@ const AddEditQuestion = () => {
 
   return (
     <div className="addEditQuestion">
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       <section className="d-flex justify-content-md-center">
         <form onSubmit={submitted}>
           <label>Enter Question Statement: </label>

@@ -7,7 +7,6 @@ import "../style/StudentExams.css";
 
 const StudentExams = (props) => {
   const auth = getAuth();
-  var email;
   const history = useHistory();
   const [state, setState] = useState({});
 
@@ -29,8 +28,7 @@ const StudentExams = (props) => {
   // console.log(x);
   // const emailId = email.substring(0, emailLength);
   // console.log(emailId);
-  const emailId = "dkuma25212";
-  const userId = "dkumar25212";
+  const userId = props.userId;
 
   const db = getDatabase();
   // const history = useHistory();
@@ -38,7 +36,7 @@ const StudentExams = (props) => {
   const [examDetail, setexamDetail] = useState([]);
 
   useEffect(() => {
-    const dbref = ref(db, `student/` + emailId);
+    const dbref = ref(db, `student/` + userId);
     onValue(
       dbref,
       (snapshot) => {
@@ -53,7 +51,7 @@ const StudentExams = (props) => {
         onlyOnce: true,
       }
     );
-  }, [emailId]);
+  }, [userId]);
 
   return (
     <div id="paperhai" className="studentExam">
@@ -64,52 +62,70 @@ const StudentExams = (props) => {
       ></Navbar>
       <div id="student-header" className="d-flex justify-content-md-center">
         <div>
-          <h1 id="header">You Appeared In</h1>
+          <h3 id="header">You Appeared In</h3>
         </div>
         <div>
           <Link to={"/giveExam"}>
-            <button className="btn btn-give">Give Exam</button>
+            <button
+              userId={props.userId}
+              emailId={props.emailId}
+              profileName={props.profileName}
+              profilePhoto={props.profilePhoto}
+              className="btn btn-give"
+            >
+              Give Exam
+            </button>
           </Link>
         </div>
       </div>
-      <div class="table-responsive">
-        <table className="styled-table">
-          <thead>
-            <tr>
-              <th style={{ textAlign: "center" }}>No.</th>
-              <th style={{ textAlign: "center" }}>Exam Name</th>
-              <th style={{ textAlign: "center" }}>Creator Email</th>
-              <th style={{ textAlign: "center" }}>Score</th>
-              <th style={{ textAlign: "center" }}>Response</th>
-              <th style={{ textAlign: "center" }}>Leaderboard</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* <LeaderBoard state={state}></LeaderBoard> */}
-            {Object.keys(state).map((id, index) => {
-              return (
-                <tr key={id}>
-                  <th scope="row">{index + 1}.</th>
-                  <td>{state[id].examName}</td>
-                  <td>{state[id].creatorEmail}</td>
-                  <td>
-                    <button className="btn btn-view">100/100</button>
-                  </td>
-                  <td>
-                    <Link to={"/studentResponse/" + id + "/" + userId}>
-                      <button className="btn btn-edit">Response</button>
-                    </Link>
-                  </td>
-                  <td>
-                    <Link to={"/studentLeaderboard/" + id}>
-                      <button className="btn btn-delete">LeaderBoard</button>
-                    </Link>
-                  </td>
+      <div>
+        {state == null ? (
+          <>Loading..........</>
+        ) : (
+          <div class="table-responsive">
+            <table className="styled-table">
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "center" }}>No.</th>
+                  <th style={{ textAlign: "center" }}>Exam Name</th>
+                  <th style={{ textAlign: "center" }}>Creator Email</th>
+                  <th style={{ textAlign: "center" }}>Score</th>
+                  <th style={{ textAlign: "center" }}>Response</th>
+                  <th style={{ textAlign: "center" }}>Leaderboard</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                {/* <LeaderBoard state={state}></LeaderBoard> */}
+                {Object.keys(state).map((id, index) => {
+                  return (
+                    <tr key={id}>
+                      <th scope="row">{index + 1}.</th>
+                      <td>{state[id].examName}</td>
+                      <td>{state[id].creatorEmail}</td>
+                      <td>
+                        <Link to={"/studentScore/" + userId + "/" + id}>
+                          <button className="btn btn-view">Check</button>
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={"/studentResponse/" + id + "/" + userId}>
+                          <button className="btn btn-edit">Response</button>
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to={"/studentLeaderboard/" + id}>
+                          <button className="btn btn-delete">
+                            LeaderBoard
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );

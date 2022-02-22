@@ -48,7 +48,7 @@ const TeacherExams = (props) => {
         profilePhoto={props.profilePhoto}
       ></Navbar>
       <div id="teacher-header" className="d-flex justify-content-md-center">
-        <h1 id="header">You Created</h1>
+        <h3 id="header">You Created</h3>
         <Link to="/createExam">
           <button className="btn btn-create">Create Exam</button>
         </Link>
@@ -66,6 +66,7 @@ const TeacherExams = (props) => {
                   <th style={{ textAlign: "center" }}>Exam Name</th>
                   <th style={{ textAlign: "center" }}>Exam Id</th>
                   <th style={{ textAlign: "center" }}>Exam Password</th>
+                  <th style={{ textAlign: "center" }}>Exam Timing</th>
                   <th style={{ textAlign: "center" }}>Actions</th>
                   <th style={{ textAlign: "center" }}>Leaderboard</th>
                 </tr>
@@ -78,6 +79,9 @@ const TeacherExams = (props) => {
                       <td>{examsData[id].examName}</td>
                       <td>{examsData[id].examId}</td>
                       <td>{examsData[id].password}</td>
+                      <td>
+                        {examsData[id].timeStart} - {examsData[id].timeEnd}
+                      </td>
                       <td>
                         <Link to={"/viewExam/" + id}>
                           <button className="btn btn-view">View Exam</button>

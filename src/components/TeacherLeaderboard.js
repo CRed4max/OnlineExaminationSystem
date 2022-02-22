@@ -20,7 +20,7 @@ const TeacherLeaderboard = (props) => {
   const [state, setState] = useState(["hello"]);
   // console.log(state);
 
-  const emailId = "emailId1";
+  // const emailId = "emailId1";
 
   useEffect(() => {
     // console.log(examId);
@@ -60,6 +60,11 @@ const TeacherLeaderboard = (props) => {
       Object.keys(response).map((id1, index) => {
         if (response[id1].answer === response[id1].answered) {
           totalScore += Number(response[id1].marks);
+        } else {
+          if (response[id1].answered != null) {
+            console.log("yes");
+            totalScore -= Number(response[id1].negative);
+          }
         }
       });
 
@@ -131,7 +136,7 @@ const TeacherLeaderboard = (props) => {
                       <Link
                         to={"/studentResponse/" + examId + "/" + state[id].uid}
                       >
-                        <button className="btn btn-edit">Response</button>
+                        <button className="btn btn-response">Response</button>
                       </Link>
                     </td>
                   </tr>

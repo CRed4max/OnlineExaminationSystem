@@ -4,7 +4,7 @@ import { useHistory, Link, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import "../style/ExamResponse.css";
 
-const ExamResponse = () => {
+const ExamResponse = (props) => {
   const { examId, userId } = useParams();
   // userId = "dkumar25212";
   const [array, setArray] = useState([]);
@@ -47,7 +47,11 @@ const ExamResponse = () => {
 
   return (
     <div id="response" className="row justify-content-md-center">
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       {/* {console.log(array, state)} */}
 
       <div className="col-8">

@@ -2,11 +2,15 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const ExamInstructions = () => {
-  const { examId } = useParams();
+const ExamInstructions = (props) => {
+  const { examId, userId } = useParams();
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       <div className="d-flex justify-content-md-center my-2">
         <div className="col-2"></div>
         <div className="col-8 bg-light">
@@ -47,7 +51,9 @@ const ExamInstructions = () => {
           </div>
           <div>
             <Link to={"/examPaper/" + examId}>
-              <button className="submit">Start Examination</button>
+              <button userId={userId} className="submit">
+                Start Examination
+              </button>
             </Link>
           </div>
         </div>

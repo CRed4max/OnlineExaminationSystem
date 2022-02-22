@@ -8,13 +8,17 @@ import { getAuth } from "firebase/auth";
 import Navbar from "./Navbar";
 import "../style/AddEditExam.css";
 
-const AddEditExam = () => {
-  const auth = getAuth();
-  const { email, uid, photoURL } = auth.currentUser;
+const AddEditExam = (props) => {
   const db = getDatabase();
   const history = useHistory();
   const [examName, setExamName] = useState("");
   const [password, setpassword] = useState("");
+  const [timeStart, settimeStart] = useState("");
+  const [timeEnd, settimeEnd] = useState("");
+
+  var temp = new Date();
+  console.log(temp);
+
   const [gid, setgid] = useState("");
   useEffect(() => {
     const dbref = ref(db, "exams/");
@@ -43,23 +47,36 @@ const AddEditExam = () => {
     // console.log(e.target.value);
     setpassword(e.target.value);
   };
+
+  const changeTimeStart = (e) => {
+    // console.log(e.target.value);
+    settimeStart(e.target.value);
+  };
+  const changeTimeEnd = (e) => {
+    // console.log(e.target.value);
+    settimeEnd(e.target.value);
+  };
+
   const submitted = (e) => {
     e.preventDefault();
-    if (!password || !examName) alert("Please provide both entries !!");
+    if (!password || !examName || !timeStart || !timeEnd)
+      alert("Please provide all entries !!");
     else {
       // console.log(app);
-      const user = auth.currentUser;
+      // const user = auth.currentUser;
       // console.log(user);
-      const date = new Date();
-      const encDate = btoa(date);
-      const roomKey = user.uid + encDate;
+      const dateTemp = new Date();
+      const encDate = btoa(dateTemp);
+      const roomKey = props.userId + encDate;
       // console.log(roomKey);
       const dbref = ref(db, "exams/" + roomKey);
       set(dbref, {
         examName: examName,
         examId: gid,
-        creatorEmail: user.email,
+        creatorEmail: props.emailId,
         password: password,
+        timeStart: timeStart,
+        timeEnd: timeEnd,
       });
       history.push("/teacher");
     }
@@ -67,7 +84,11 @@ const AddEditExam = () => {
 
   return (
     <div className="addEditExam">
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       <section className="d-flex justify-content-md-center">
         <form onSubmit={submitted}>
           <input type="text" value={gid}></input>
@@ -84,6 +105,22 @@ const AddEditExam = () => {
             value={password}
             onChange={changePassword}
             placeholder="Enter Exam Password"
+          ></input>
+          <br />
+          <input
+            type="datetime-local"
+            ng-model="UIcontroller.JobDataModel.datetime"
+            value={timeStart}
+            onChange={changeTimeStart}
+            placeholder="Select Start Time"
+          ></input>
+          <br />
+          <input
+            type="datetime-local"
+            ng-model="UIcontroller.JobDataModel.datetime"
+            value={timeEnd}
+            onChange={changeTimeEnd}
+            placeholder="Select End Time"
           ></input>
           <br />
           <br />

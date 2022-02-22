@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import "../style/ViewExam.css";
 
-const ViewExam = () => {
+const ViewExam = (props) => {
   const { examId } = useParams();
   const [array, setArray] = useState([]);
   const [indexRed, setindexRed] = useState(0);
@@ -97,7 +97,11 @@ const ViewExam = () => {
 
   return (
     <div id="viewExam">
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       {/* {console.log(array, state)} */}
 
       <div id="viewExam-header" className="d-flex justify-content-md-center">

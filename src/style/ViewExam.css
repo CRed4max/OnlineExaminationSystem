@@ -1,6 +1,7 @@
 #viewExam .col-8 {
   /* background-color: rgb(173, 241, 146); */
   margin-top: 5px;
+  align-content: center;
   /* max-width: 1000px; */
 }
 

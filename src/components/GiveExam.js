@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import "../style/GiveExam.css";
 
-const GiveExam = () => {
+const GiveExam = (props) => {
   const db = getDatabase();
   const history = useHistory();
 
@@ -48,6 +48,9 @@ const GiveExam = () => {
         let temp = 0;
         Object.keys(data).map((id) => {
           // console.log(data[id].examName,typeof(data[id].examId),data[id].password,examName,typeof(examId),password);
+
+          // var x = data[id].date + data[id].timeStart;
+          // console.log(x);
           if (
             data[id].examName === examName &&
             data[id].examId === Number(examId) &&
@@ -55,7 +58,7 @@ const GiveExam = () => {
           ) {
             temp += 1;
             // console.log("matched");
-            history.push("/examInstructions/" + id);
+            history.push("/examInstructions/" + id + "/" + props.userId);
             // break;
           }
         });
@@ -69,7 +72,11 @@ const GiveExam = () => {
 
   return (
     <div className="giveExam">
-      <Navbar></Navbar>
+      <Navbar
+        emailId={props.emailId}
+        profileName={props.profileName}
+        profilePhoto={props.profilePhoto}
+      ></Navbar>
       <section className="d-flex justify-content-md-center">
         <h3>Fill Exam Credentials:</h3>
         <form onSubmit={submitted}>

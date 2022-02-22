@@ -1,5 +1,6 @@
 .teacherExam .styled-table {
   border-collapse: collapse;
+  background-color: #cef0d8;
   margin: auto;
   font-size: 0.9em;
   font-family: sans-serif;
@@ -9,7 +10,7 @@
 }
 
 .teacherExam .styled-table thead tr {
-  background-color: #009879;
+  background-color: #062916;
   color: #ffffff;
   text-align: left;
 }
@@ -20,15 +21,15 @@
 }
 
 .teacherExam .styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 4px solid #dddddd;
 }
 
-.teacherExam .styled-table tbody tr:nth-of-type(even) {
+/* .teacherExam .styled-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
-}
+} */
 
 .teacherExam .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 4px solid #050806;
 }
 
 .teacherExam .btn {
@@ -58,20 +59,21 @@
 }
 
 .teacherExam .btn-create {
-  background-color: #9eba00;
-  font-size: 25px;
+  background-color: #065a06;
+  font-size: 20px;
   float: right;
   display: flex;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
-  margin-right: 10px;
+  margin-right: 5px;
   right: 0;
 }
 
 .teacherExam #teacher-header {
-  margin-top: 2px;
-  background-color: #f1d997;
+  /* margin-top: 2px; */
+  height: 50px;
+  background-color: #92e2ca;
 }
 
 .teacherExam #teacher-header #header {
