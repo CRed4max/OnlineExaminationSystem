@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import "../style/ExamInstructions.css";
 
 const ExamInstructions = (props) => {
   const { examId, userId } = useParams();
@@ -12,8 +13,8 @@ const ExamInstructions = (props) => {
         profilePhoto={props.profilePhoto}
       ></Navbar>
       <div className="d-flex justify-content-md-center my-2">
-        <div className="col-2"></div>
-        <div className="col-8 bg-light">
+        {/* <div className="col-2"></div> */}
+        <div className="instruction1 bg-light">
           <div>
             <h2>Please Read Complete Instructions Before You Start Exam</h2>
             <hr></hr>
@@ -57,7 +58,7 @@ const ExamInstructions = (props) => {
             </Link>
           </div>
         </div>
-        <div className="col-2"></div>
+        {/* <div className="col-2"></div> */}
       </div>
     </div>
   );

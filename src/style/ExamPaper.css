@@ -15,6 +15,16 @@
   text-align: justify;
 } */
 
+#examPaper .temp111 {
+  width: 70%;
+}
+#examPaper .div1 {
+  width: 15%;
+}
+#examPaper .div2 {
+  width: 15%;
+}
+
 #paper .footerhi {
   background-color: rgb(238, 187, 67);
   border-radius: 5px;
@@ -41,4 +51,16 @@
   margin-bottom: 10px;
   margin-right: 10px;
   right: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #examPaper .temp111 {
+    width: 94%;
+  }
+  #examPaper .div1 {
+    width: 4%;
+  }
+  #examPaper .div2 {
+    width: 2%;
+  }
 }

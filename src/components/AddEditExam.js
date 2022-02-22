@@ -90,6 +90,8 @@ const AddEditExam = (props) => {
         profilePhoto={props.profilePhoto}
       ></Navbar>
       <section className="d-flex justify-content-md-center">
+        <label>Fill the entries: </label>
+        <br />
         <form onSubmit={submitted}>
           <input type="text" value={gid}></input>
           <br></br>
@@ -122,7 +124,6 @@ const AddEditExam = (props) => {
             onChange={changeTimeEnd}
             placeholder="Select End Time"
           ></input>
-          <br />
           <br />
           <button type="submit" className="submit">
             {" "}

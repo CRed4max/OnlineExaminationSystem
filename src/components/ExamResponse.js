@@ -54,7 +54,7 @@ const ExamResponse = (props) => {
       ></Navbar>
       {/* {console.log(array, state)} */}
 
-      <div className="col-8">
+      <div className="response1">
         <div className="total-question">
           <h3>Total Number Of Questions = {stateLength}</h3>
         </div>

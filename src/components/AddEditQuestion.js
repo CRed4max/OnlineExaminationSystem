@@ -113,6 +113,7 @@ const AddEditQuestion = (props) => {
       <section className="d-flex justify-content-md-center">
         <form onSubmit={submitted}>
           <label>Enter Question Statement: </label>
+          <br />
           <textarea
             rows="4"
             type="text-area 2"
@@ -124,6 +125,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Option 1: </label>
+          <br />
           <textarea
             type="text"
             name="option1"
@@ -134,6 +136,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Option 2: </label>
+          <br />
           <textarea
             type="text"
             name="option2"
@@ -144,6 +147,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Option 3: </label>
+          <br />
           <textarea
             type="text"
             name="option3"
@@ -154,6 +158,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Option 4: </label>
+          <br />
           <textarea
             type="text"
             name="option4"
@@ -164,6 +169,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Answer: </label>
+          <br />
           <textarea
             className="same-line"
             type="text"
@@ -175,6 +181,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Marks: </label>
+          <br />
           <textarea
             className="same-line"
             type="number"
@@ -186,6 +193,7 @@ const AddEditQuestion = (props) => {
           ></textarea>
           <br />
           <label>Enter Negative: </label>
+          <br />
           <textarea
             className="same-line"
             type="number"

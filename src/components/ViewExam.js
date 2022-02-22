@@ -96,7 +96,7 @@ const ViewExam = (props) => {
   };
 
   return (
-    <div id="viewExam">
+    <div id="viewExam" className="row justify-content-md-center">
       <Navbar
         emailId={props.emailId}
         profileName={props.profileName}
@@ -104,16 +104,33 @@ const ViewExam = (props) => {
       ></Navbar>
       {/* {console.log(array, state)} */}
 
-      <div id="viewExam-header" className="d-flex justify-content-md-center">
-        <h3 id="header">Total Number Of Questions = {stateLength}</h3>
+      <div id="view-header" className="d-flex justify-content-md-center">
+        <div>
+          <h3 id="header">Total Questions = {stateLength}</h3>
+        </div>
+        <div>
+          {/* <Link to={"/addQuestion/" + examId + "/-1"}>
+            <button id="addQuestion" className="btn btn-add">
+              Add Question
+            </button>
+          </Link> */}
+
+          <Link to={"/addQuestion/" + examId + "/-1"}>
+            <button className="btn btn-add">Add Question</button>
+          </Link>
+        </div>
+      </div>
+
+      {/* <div id="viewExam-header" className="d-flex justify-content-md-center">
+        <h3 id="header">Total Number Of Questions = {stateLength} &emsp;</h3>
         <Link to={"/addQuestion/" + examId + "/-1"}>
           <button id="addQuestion" className="btn btn-primary">
             Add Question
           </button>
         </Link>
-      </div>
+      </div> */}
       <div className="d-flex justify-content-md-center">
-        <div className="col-8">
+        <div className="view">
           {array.length === 0 ? (
             <>Loading..........</>
           ) : (

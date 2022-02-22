@@ -1,7 +1,8 @@
-#response .col-8 {
+#response .response1 {
   /* background-color: rgb(173, 241, 146); */
   margin-top: 5px;
   /* max-width: 1000px; */
+  width: 1000px;
 }
 
 #response .total-question {
@@ -29,4 +30,12 @@
   margin-bottom: 5px;
   margin-right: 5px;
   float: right;
+}
+@media only screen and (max-width: 600px) {
+  #response .response1 {
+    /* background-color: rgb(173, 241, 146); */
+    /* margin-top: 5px; */
+    /* max-width: 1000px; */
+    width: 100%;
+  }
 }

@@ -115,7 +115,7 @@ const ExamPaper = (props) => {
 
   //   console.log(array);
   return (
-    <div>
+    <div id="examPaper" className="row justify-content-md-center">
       <Navbar
         emailId={props.emailId}
         profileName={props.profileName}
@@ -126,8 +126,11 @@ const ExamPaper = (props) => {
 
       {/* {console.log(new Date().toISOString().slice(0, 10)); */}
       <div className="d-flex my-2">
-        <div className="col-2"></div>
-        <div id="paper" className="justify-content-md-center col-8 bg-light">
+        <div className="div1"></div>
+        <div
+          id="paper"
+          className="justify-content-md-center temp111 col-8 bg-light"
+        >
           <div className="d-flex bg-warning py-2">
             <div className="col-8">
               <h3>Total Number Of Questions = {stateLength}</h3>
@@ -179,7 +182,7 @@ const ExamPaper = (props) => {
             </button>
           </div>
         </div>
-        <div className="col-2"></div>
+        <div className="div2"></div>
       </div>
     </div>
   );
