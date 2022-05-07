@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { useHistory, Link, useParams } from "react-router-dom";
-import "../style/StudentScore.css";
+import "../../style/StudentScore.css";
 
 var StudentScore = (props) => {
   //   const userId = props.userId;

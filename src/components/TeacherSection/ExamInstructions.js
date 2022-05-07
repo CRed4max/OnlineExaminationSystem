@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/ExamInstructions.css";
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import "../../style/ExamInstructions.css";
 
 const ExamInstructions = (props) => {
   const { examId, userId } = useParams();

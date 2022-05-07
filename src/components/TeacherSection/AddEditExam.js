@@ -5,9 +5,10 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import { useHistory } from "react-router-dom";
 // import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import { getAuth } from "firebase/auth";
-import Navbar from "./Navbar";
-import "../style/AddEditExam.css";
-
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+// import "../style/AddEditExam.css";
+import "../../style/AddEditExam.css";
 const AddEditExam = (props) => {
   const db = getDatabase();
   const history = useHistory();
@@ -65,6 +66,7 @@ const AddEditExam = (props) => {
       // console.log(app);
       // const user = auth.currentUser;
       // console.log(user);
+      
       const dateTemp = new Date();
       const encDate = btoa(dateTemp);
       const roomKey = props.userId + encDate;

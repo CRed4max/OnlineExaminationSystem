@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useHistory, Link, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/ExamResponse.css";
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import "../../style/ExamResponse.css";
 
 const ExamResponse = (props) => {
   const { examId, userId } = useParams();

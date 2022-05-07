@@ -4,8 +4,10 @@ import { useHistory } from "react-router-dom";
 // import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/AddEditQuestion.css";
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+// import "../style/AddEditQuestion.css";
+import "../../style/AddEditQuestion.css";
 
 const intialState = {
   questionStatement: "",

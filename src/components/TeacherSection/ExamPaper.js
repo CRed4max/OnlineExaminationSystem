@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/ExamPaper.css";
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import "../../style/ExamPaper.css";
 import { QuestionRadio } from "./QuestionRadio";
 import { useHistory } from "react-router-dom";
 

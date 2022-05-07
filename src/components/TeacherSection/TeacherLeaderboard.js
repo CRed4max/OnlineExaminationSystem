@@ -5,10 +5,11 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/StudentLeaderboard.css";
+// import Navbar from "./Navbar";
+import Navbar from "../Navbar";
+import "../../style/TeacherLeaderboard.css";
 
-const StudentLeaderboard = (props) => {
+const TeacherLeaderboard = (props) => {
   const { examId } = useParams();
   // const [array, setArray] = useState([]);
   // const [indexRed, setindexRed] = useState(0);
@@ -53,6 +54,7 @@ const StudentLeaderboard = (props) => {
       let totalScore = 0;
       let slNo = index + 1;
       var name = "";
+      var email = "";
 
       var response = data[id];
 
@@ -73,10 +75,17 @@ const StudentLeaderboard = (props) => {
         (snapshot) => {
           // console.log(snapshot.val().name);
           name = snapshot.val().name;
+          email = snapshot.val().email;
           // console.log(totalScore);
           // console.log(name);
 
-          var obj = { slNo: slNo, name: name, totalScore: totalScore };
+          var obj = {
+            slNo: slNo,
+            uid: uid,
+            name: name,
+            email: email,
+            totalScore: totalScore,
+          };
           // console.log(obj);
           ans.push(obj);
           // setData({ ...snapshot.val() });
@@ -97,7 +106,7 @@ const StudentLeaderboard = (props) => {
   }, [examId, db, data]);
 
   return (
-    <div className="studentLeaderboard">
+    <div className="teacherLeaderboard">
       <Navbar
         emailId={props.emailId}
         profileName={props.profileName}
@@ -110,7 +119,9 @@ const StudentLeaderboard = (props) => {
               <tr>
                 <th>No.</th>
                 <th>Student Name</th>
+                <th>Student Email</th>
                 <th>Student Score</th>
+                <th>Student Response</th>
               </tr>
             </thead>
             <tbody>
@@ -120,7 +131,15 @@ const StudentLeaderboard = (props) => {
                   <tr key={id}>
                     <th scope="row">{index + 1}.</th>
                     <td>{state[id].name}</td>
+                    <td>{state[id].email}</td>
                     <td>{state[id].totalScore}</td>
+                    <td>
+                      <Link
+                        to={"/studentResponse/" + examId + "/" + state[id].uid}
+                      >
+                        <button className="btn btn-response">Response</button>
+                      </Link>
+                    </td>
                   </tr>
                 );
               })}
@@ -132,4 +151,4 @@ const StudentLeaderboard = (props) => {
   );
 };
 
-export default StudentLeaderboard;
+export default TeacherLeaderboard;

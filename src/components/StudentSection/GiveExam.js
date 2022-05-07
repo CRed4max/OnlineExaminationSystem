@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import app from "./firebase";
+import app from "../firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 import {
   getAuth,
@@ -10,8 +10,9 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useHistory } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/GiveExam.css";
+import Navbar from "../Navbar";
+
+import "../../style/GiveExam.css";
 
 const GiveExam = (props) => {
   const db = getDatabase();

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useHistory, Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import "../style/StudentExams.css";
+import Navbar from "../Navbar";
+import "../../style/StudentExams.css";
 
 const StudentExams = (props) => {
   const auth = getAuth();

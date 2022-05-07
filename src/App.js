@@ -13,21 +13,29 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { storeCredential } from "./actions/index";
 
-import AddEditExam from "./components/AddEditExam";
-import AddEditQuestion from "./components/AddEditQuestion";
-import ExamInstructions from "./components/ExamInstructions";
-import ExamPaper from "./components/ExamPaper";
-import ExamResponse from "./components/ExamResponse";
-import GiveExam from "./components/GiveExam";
+import AddEditExam from "./components/TeacherSection/AddEditExam";
+import AddEditQuestion from "./components/TeacherSection/AddEditQuestion";
+import ExamInstructions from "./components/TeacherSection/ExamInstructions";
+import ExamPaper from "./components/TeacherSection/ExamPaper";
+import ExamResponse from "./components/TeacherSection/ExamResponse";
+import TeacherExams from "./components/TeacherSection/TeacherExams";
+import TeacherLeaderboard from "./components/TeacherSection/TeacherLeaderboard";
+import ViewExam from "./components/TeacherSection/ViewExam";
+
+
+import GiveExam from "./components/StudentSection/GiveExam";
+import StudentLeaderboard from "./components/StudentSection/StudentLeaderboard";
+import StudentScore from "./components/StudentSection/StudentScore";
+import StudentExams from "./components/StudentSection/StudentExams";
+
+
+
 import { Login } from "./components/Login";
 import Navbar from "./components/Navbar";
-import StudentExams from "./components/StudentExams";
-import TeacherExams from "./components/TeacherExams";
-import ViewExam from "./components/ViewExam";
+
+
 import { useHistory } from "react-router-dom";
-import StudentLeaderboard from "./components/StudentLeaderboard";
-import TeacherLeaderboard from "./components/TeacherLeaderboard";
-import StudentScore from "./components/StudentScore";
+
 
 function App() {
   const [userCurrent, setuserCurrent] = useState(
