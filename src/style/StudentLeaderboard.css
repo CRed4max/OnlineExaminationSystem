@@ -1,0 +1,83 @@
+.studentLeaderboard .styled-table {
+  border-collapse: collapse;
+  background-color: #f8af98;
+  margin: auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 700px;
+  max-width: 1000px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.studentLeaderboard .styled-table thead tr {
+  background-color: #f17240;
+  color: #ffffff;
+  text-align: left;
+}
+
+.studentLeaderboard .styled-table th,
+.studentLeaderboard .styled-table td {
+  padding: 12px 15px;
+}
+
+.studentLeaderboard .styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* .studentLeaderboard .styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+} */
+
+.studentLeaderboard .styled-table tbody tr:last-of-type {
+  border-bottom: 4px solid #980000;
+}
+
+.studentLeaderboard .btn {
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.studentLeaderboard .btn-edit {
+  background-color: #008cba;
+}
+
+.studentLeaderboard .btn-delete {
+  background-color: #f44336;
+}
+
+.studentLeaderboard .btn-view {
+  background-color: #eeffd3;
+  color: black;
+}
+
+.studentLeaderboard .btn-give {
+  background-color: #9eba00;
+  font-size: 25px;
+  float: right;
+  display: flex;
+  position: absolute;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  right: 0;
+}
+
+.studentLeaderboard #student-header {
+  margin-top: 2px;
+  background-color: #f1d997;
+}
+
+/* .studentExam #student-header #header {
+    float: left;
+    display: flex;
+  } */

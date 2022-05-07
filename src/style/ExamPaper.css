@@ -1,0 +1,66 @@
+/* #paper {
+  width: 1200px;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 20%;
+  margin-top: 5%;
+} */
+/* #paper .caption {
+  overflow: auto;
+  text-align: justify;
+}
+
+#paper .yes {
+  overflow: auto;
+  text-align: justify;
+} */
+
+#examPaper .temp111 {
+  width: 70%;
+}
+#examPaper .div1 {
+  width: 15%;
+}
+#examPaper .div2 {
+  width: 15%;
+}
+
+#paper .footerhi {
+  background-color: rgb(238, 187, 67);
+  border-radius: 5px;
+}
+
+#paper #button1 {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  float: left;
+}
+#paper #button2 {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  float: right;
+}
+
+#paper .btn-give {
+  /* background-color: #f15416; */
+  font-size: 25px;
+  float: right;
+  /* display: flex; */
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  right: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #examPaper .temp111 {
+    width: 94%;
+  }
+  #examPaper .div1 {
+    width: 4%;
+  }
+  #examPaper .div2 {
+    width: 2%;
+  }
+}

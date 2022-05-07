@@ -1,0 +1,84 @@
+.studentExam .styled-table {
+  border-collapse: collapse;
+  background-color: #d4eaf1;
+  margin: auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.studentExam .styled-table thead tr {
+  background-color: #031530;
+  color: #ffffff;
+  text-align: left;
+}
+
+.studentExam .styled-table th,
+.studentExam .styled-table td {
+  padding: 12px 15px;
+}
+
+.studentExam .styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* .studentExam .styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+} */
+
+.studentExam .styled-table tbody tr:last-of-type {
+  border-bottom: 4px solid #071527;
+}
+
+.studentExam .btn {
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.studentExam .btn-edit {
+  background-color: #008cba;
+}
+
+.studentExam .btn-delete {
+  background-color: #f44336;
+}
+
+.studentExam .btn-view {
+  background-color: #eeffd3;
+  color: black;
+}
+
+.studentExam .btn-give {
+  background-color: #031161;
+  font-size: 20px;
+  float: right;
+  display: flex;
+  position: absolute;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  right: 0;
+}
+
+.studentExam #student-header {
+  /* margin-top: 2px; */
+  height: 50px;
+  font-size: medium;
+  background-color: #97bef1;
+}
+
+/* .studentExam #student-header #header {
+  float: left;
+  display: flex;
+} */

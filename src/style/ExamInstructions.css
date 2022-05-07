@@ -1,0 +1,56 @@
+.instruction1 {
+  display: inline-block;
+  /* position: fixed; */
+  border-radius: 20px;
+  padding-top: 40px;
+  padding-left: 5px;
+  /* margin: 10% 20% 0 20%; */
+  /* text-align: center; */
+  top: 15%;
+  left: 10%;
+  right: 10%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  min-height: 200px;
+  background-color: rgb(190, 232, 235);
+}
+.instruction1 button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .instruction1 {
+    /* background-color: rgb(173, 241, 146); */
+    /* margin-top: 5px; */
+    /* max-width: 1000px; */
+    /* margin: 10% 2% 0 2%; */
+    display: inline-block;
+    /* position: fixed; */
+    border-radius: 20px;
+    padding-top: 40px;
+    /* margin: 10% 20% 0 20%; */
+    /* text-align: center; */
+    top: 20%;
+    left: 0%;
+    right: 0%;
+    max-width: 728px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    min-height: 200px;
+    background-color: rgb(190, 232, 235);
+  }
+}
