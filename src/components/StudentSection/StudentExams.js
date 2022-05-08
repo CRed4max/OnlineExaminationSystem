@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useHistory, Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../Navbar";
+import StudentExamCards from "./StudentExamCard";
 import "../../style/StudentExams.css";
 
 const StudentExams = (props) => {
@@ -45,13 +47,37 @@ const StudentExams = (props) => {
         setTimeout(() => {
           // setState(data);
         }, 2000);
-        console.log(state);
+        // console.log(state);
       },
       {
         onlyOnce: true,
       }
     );
   }, [userId]);
+
+
+  function ScoreValue(userIdHai, examIdHai){
+    var totalScore = 0;
+    const dbref = ref(db, `response/` + examIdHai + "/" + userIdHai);
+    onValue(
+      dbref,
+      (snapshot) => {
+
+        Object.keys(snapshot.val()).map((id1, index) => {
+          if (snapshot.val()[id1].answer === snapshot.val()[id1].answered) {
+            totalScore += Number(snapshot.val()[id1].marks);
+          } else {
+            if (snapshot.val()[id1].answered != null) {
+              totalScore -= Number(snapshot.val()[id1].negative);
+            }
+          }
+        });
+      }
+    );
+
+
+    return totalScore;
+  }
 
   return (
     <div id="paperhai" className="studentExam">
@@ -60,6 +86,9 @@ const StudentExams = (props) => {
         profileName={props.profileName}
         profilePhoto={props.profilePhoto}
       ></Navbar>
+
+
+      <Container>
       <div id="student-header" className="d-flex justify-content-md-center">
         <div>
           <h3 id="header">You Appeared In</h3>
@@ -78,55 +107,31 @@ const StudentExams = (props) => {
           </Link>
         </div>
       </div>
-      <div>
+
         {state == null ? (
           <>Loading..........</>
         ) : (
-          <div class="table-responsive">
-            <table className="styled-table">
-              <thead>
-                <tr>
-                  <th style={{ textAlign: "center" }}>No.</th>
-                  <th style={{ textAlign: "center" }}>Exam Name</th>
-                  <th style={{ textAlign: "center" }}>Creator Email</th>
-                  <th style={{ textAlign: "center" }}>Score</th>
-                  <th style={{ textAlign: "center" }}>Response</th>
-                  <th style={{ textAlign: "center" }}>Leaderboard</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* <LeaderBoard state={state}></LeaderBoard> */}
-                {Object.keys(state).map((id, index) => {
-                  return (
-                    <tr key={id}>
-                      <th scope="row">{index + 1}.</th>
-                      <td>{state[id].examName}</td>
-                      <td>{state[id].creatorEmail}</td>
-                      <td>
-                        <Link to={"/studentScore/" + userId + "/" + id}>
-                          <button className="btn btn-view">Check</button>
-                        </Link>
-                      </td>
-                      <td>
-                        <Link to={"/studentResponse/" + id + "/" + userId}>
-                          <button className="btn btn-edit">Response</button>
-                        </Link>
-                      </td>
-                      <td>
-                        <Link to={"/studentLeaderboard/" + id}>
-                          <button className="btn btn-delete">
-                            LeaderBoard
-                          </button>
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+            {Object.keys(state).map((id, index) => {
+              return (
+                <Col md={4} className="project-card">
+                  <StudentExamCards
+                    //   imgPath={coding}
+                    isBlog={false}
+                    examName={state[id].examName}
+                    creatorEmail={state[id].creatorEmail}
+                    score={ScoreValue(userId, id)}
+                    response={"/studentResponse/" + id + "/" + userId}
+                    leaderboard={"/studentLeaderboard/" + id}
+                    title="Problem Solving"
+                  />
+                </Col>
+              );
+            })}
+          </Row>
         )}
-      </div>
+      </Container>
+
     </div>
   );
 };

@@ -1,41 +1,96 @@
 #response .response1 {
-  /* background-color: rgb(173, 241, 146); */
   margin-top: 5px;
-  /* max-width: 1000px; */
-  width: 1000px;
+  align-content: center;
+  width: 90%;
 }
 
-#response .total-question {
-  min-height: 50px;
-  background-color: rgb(160, 223, 145);
-}
 
 #response .middlehi {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 2px;
-  background-color: rgb(189, 245, 247);
+  background-color: #f7f9f7;
 }
 
 #response .footerhi {
-  background-color: rgb(238, 187, 67);
   border-radius: 5px;
+  height: 50px;
 }
 
 #response #button1 {
-  margin-left: 5px;
-  margin-bottom: 5px;
-  float: left;
+  background-color: #102a4b;
 }
 #response #button2 {
-  margin-bottom: 5px;
-  margin-right: 5px;
-  float: right;
+  background-color: rgb(14, 64, 84);
 }
+
+#response .footerhi button {
+  opacity: 90%;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: left;
+  margin-left: 4%;
+  width: 20%;
+}
+
+
+#response #response-header {
+  margin-top: 2px;
+  background-color: #f1d997;
+}
+
+#response #response-header #header {
+  float: left;
+  display: flex;
+}
+
+#viewExam .btn-add {
+  background-color: #1d8f03;
+  font-size: 20px;
+  float: right;
+  display: flex;
+  position: absolute;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  right: 0;
+}
+
+#viewExam #view-header {
+  /* margin-top: 2px; */
+  height: 60px;
+  font-size: medium;
+  background-color: #d6e5f8;
+}
+
+
+
 @media only screen and (max-width: 600px) {
-  #response .response1 {
-    /* background-color: rgb(173, 241, 146); */
-    /* margin-top: 5px; */
-    /* max-width: 1000px; */
-    width: 100%;
+  #viewExam .view {
+    margin-top: 5px;
+    /* margin-left: 4%;
+    margin-right: 2%; */
+    padding-left: 2%;
+    padding-right: 2%;
+    align-content: center;
+    width: 96%;
+  }
+  #viewExam .footerhi button {
+    padding-left: 0%;
+    padding-right: 0%;
+    width: 90px;
+  }
+
+  #viewExam #view-header {
+    font-size: xx-small;
+    margin-top: 2px;
+    background-color: #d6e5f8;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  #viewExam #view-header #header {
+    padding-left: 10px;
   }
 }

@@ -113,106 +113,116 @@ const AddEditQuestion = (props) => {
         profilePhoto={props.profilePhoto}
       ></Navbar>
       <section className="d-flex justify-content-md-center">
-        <form onSubmit={submitted}>
-          <label>Enter Question Statement: </label>
-          <br />
-          <textarea
-            rows="4"
-            type="text-area 2"
-            name="questionStatement"
-            value={questionStatement}
-            onChange={changeInput}
-            placeholder="Enter Question Statement"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Option 1: </label>
-          <br />
-          <textarea
-            type="text"
-            name="option1"
-            value={option1}
-            onChange={changeInput}
-            placeholder="Enter Option 1"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Option 2: </label>
-          <br />
-          <textarea
-            type="text"
-            name="option2"
-            value={option2}
-            onChange={changeInput}
-            placeholder="Enter Option 2"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Option 3: </label>
-          <br />
-          <textarea
-            type="text"
-            name="option3"
-            value={option3}
-            onChange={changeInput}
-            placeholder="Enter Option 3"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Option 4: </label>
-          <br />
-          <textarea
-            type="text"
-            name="option4"
-            value={option4}
-            onChange={changeInput}
-            placeholder="Enter Option 4"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Answer: </label>
-          <br />
-          <textarea
-            className="same-line"
-            type="text"
-            name="answer"
-            value={answer}
-            onChange={changeInput}
-            placeholder="Enter Answer"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Marks: </label>
-          <br />
-          <textarea
-            className="same-line"
-            type="number"
-            name="marks"
-            value={marks}
-            onChange={changeInput}
-            placeholder="Enter Marks"
-            required
-          ></textarea>
-          <br />
-          <label>Enter Negative: </label>
-          <br />
-          <textarea
-            className="same-line"
-            type="number"
-            name="negative"
-            value={negative}
-            onChange={changeInput}
-            placeholder="Enter Negative"
-            required
-          ></textarea>
-          <br />
+
+      <form onSubmit={submitted}>
+
+          <div className="inputDiv">
+            <h3>Enter Question Statement: </h3>
+            <textarea 
+              className="inputFieldQuestion"
+              type="text"
+              name="questionStatement"
+              value={questionStatement}
+              onChange={changeInput}
+              placeholder="Enter Question Statement"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Option 1: </h3>
+            <textarea className="inputField"
+              type="text" 
+              name="option1"
+              value={option1}
+              onChange={changeInput}
+              placeholder="Enter Option 1"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Option 2: </h3>
+            <textarea className="inputField"
+              type="text" 
+              name="option2"
+              value={option2}
+              onChange={changeInput}
+              placeholder="Enter Option 2"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Option 3: </h3>
+            <textarea className="inputField"
+              type="text" 
+              name="option3"
+              value={option3}
+              onChange={changeInput}
+              placeholder="Enter Option 3"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Option 4: </h3>
+            <textarea className="inputField"
+              type="text" 
+              name="option4"
+              value={option4}
+              onChange={changeInput}
+              placeholder="Enter Option 4"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Answer: </h3>
+            <textarea className="inputField"
+              type="text"
+              name="answer"
+              value={answer}
+              onChange={changeInput}
+              placeholder="Enter Answer"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Marks: </h3>
+            <textarea className="inputField"
+              type="number"
+              name="marks"
+              value={marks}
+              onChange={changeInput}
+              placeholder="Enter Marks"
+              required
+            ></textarea>
+          </div>
+
+          <div className="inputDiv">
+            <h3>Enter Negative: </h3>
+            <textarea className="inputField"
+              type="number"
+              name="negative"
+              value={negative}
+              onChange={changeInput}
+              placeholder="Enter Negative"
+              required
+            ></textarea>
+          </div>
+
+
           <br />
           <button type="submit" className="submit">
             {" "}
             {qid === "-1" ? "Add" : "Update"}{" "}
           </button>
           <br />
+
         </form>
+
       </section>
     </div>
   );

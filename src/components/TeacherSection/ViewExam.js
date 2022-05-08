@@ -141,54 +141,10 @@ const ViewExam = (props) => {
                   Q{indexRed + 1}. {state[array[indexRed]].questionStatement}
                 </h3>
                 <div>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      disabled
-                      class="form-check-input"
-                      id={indexRed + "op1"}
-                      name="optradio"
-                      value={indexRed + "op1"}
-                    />
-                    {state[array[indexRed]].option1}
-                    <label class="form-check-label" for="radio1"></label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      disabled
-                      class="form-check-input"
-                      id="radio2"
-                      name="optradio"
-                      value={indexRed + "op2"}
-                    />
-                    {state[array[indexRed]].option2}
-                    <label class="form-check-label" for="radio2"></label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      disabled
-                      class="form-check-input"
-                      id="radio2"
-                      name="optradio"
-                      value={indexRed + "op3"}
-                    />
-                    {state[array[indexRed]].option3}
-                    <label class="form-check-label" for="radio2"></label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      disabled
-                      class="form-check-input"
-                      id="radio2"
-                      name="optradio"
-                      value={indexRed + "op4"}
-                    />
-                    {state[array[indexRed]].option4}
-                    <label class="form-check-label" for="radio2"></label>
-                  </div>
+                  <span>a. {state[array[indexRed]].option1}</span><br></br>
+                  <span>b. {state[array[indexRed]].option2}</span><br></br>
+                  <span>c. {state[array[indexRed]].option3}</span><br></br>
+                  <span>d. {state[array[indexRed]].option4}</span>
                 </div>
                 <li>
                   Full Marks For This Question: {state[array[indexRed]].marks}
