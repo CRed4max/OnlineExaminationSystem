@@ -28,6 +28,8 @@ const TeacherExams = (props) => {
   const [examsData, setExamsData] = useState();
   console.log(examsData);
   const db = getDatabase();
+
+  
   useEffect(() => {
     console.log(emailId);
     const que = query(
@@ -85,7 +87,7 @@ const TeacherExams = (props) => {
                     endTime={examsData[id].timeEnd}
                     viewExam={"/viewExam/" + id}
                     leaderboard={"/teacherLeaderboard/" + id}
-                    title="Problem Solving"
+                    // title="Problem Solving"
                     description="Solved 800+ Coding Problems"
                     viewType="View Profile"
                   />

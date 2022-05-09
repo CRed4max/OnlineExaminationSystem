@@ -11,14 +11,14 @@ function StudentExamCards(props) {
       {/* <Card.Img variant="top" style={{height: 200, width: 400 }} src={props.imgPath} alt="card-img" /> */}
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          Exam Name Your: {props.examName}
+        <Card.Text style={{ textAlign: "justify"}}>
+          Exam Name Your : <span style={{color: "red"}}>{props.examName}</span>
         </Card.Text>
         <Card.Text style={{ textAlign: "justify" }}>
-          Creator Email: <br/> {props.creatorEmail}
+          Creator Email : <br/> <span style={{color: "blue"}}>{props.creatorEmail}</span> 
         </Card.Text>
         <Card.Text style={{ textAlign: "justify" }}>
-          Your Score: {props.score}
+          Your Score :  <span style={{color: "green"}}>{props.score}</span> 
         </Card.Text>
 
 

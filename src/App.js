@@ -43,7 +43,7 @@ function App() {
   );
   const dispatch = useDispatch();
 
-  console.log(userCurrent);
+  // console.log(userCurrent);
 
   const [userId, setUserId] = useState("");
   const [emailId, setEmailId] = useState("");
@@ -65,12 +65,13 @@ function App() {
         setuserCurrent(obj);
         // dispatch(storeCredential(obj));
 
-        console.log(userCurrent);
+        // console.log(userCurrent);
 
         setUserId(user.uid);
         setEmailId(user.email);
         setprofileName(user.displayName);
         setprofilePhoto(user.photoURL);
+        // console.log("yesssssssssssssss");
         history.push("/home");
       } else {
         console.log("no user is currently signed in");
