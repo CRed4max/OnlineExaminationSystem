@@ -12,7 +12,7 @@ function StudentExamCards(props) {
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "justify"}}>
-          Exam Name Your : <span style={{color: "red"}}>{props.examName}</span>
+        Your Exam Name : <span style={{color: "red"}}>{props.examName}</span>
         </Card.Text>
         <Card.Text style={{ textAlign: "justify" }}>
           Creator Email : <br/> <span style={{color: "blue"}}>{props.creatorEmail}</span> 
