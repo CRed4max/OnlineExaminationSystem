@@ -115,11 +115,6 @@ const AddEditExam = (props) => {
 
   return (
     <div className="addEditExam">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       <section className="d-flex justify-content-md-center">
         {/* <label>Fill the entries: </label> */}
         {/* <br /> */}

@@ -73,11 +73,6 @@ const GiveExam = (props) => {
 
   return (
     <div className="giveExam">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       <section className="d-flex justify-content-md-center">
         <h3>Fill Exam Credentials:</h3>
         <form onSubmit={submitted}>

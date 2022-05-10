@@ -81,19 +81,31 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Navbar
+        userId={userId}
+        emailId={emailId}
+        profileName={profileName}
+        profilePhoto={profilePhoto}
+      /> */}
+      
       <BrowserRouter>
+      <Navbar
+        emailId={emailId}
+        profileName={profileName}
+        profilePhoto={profilePhoto}
+      ></Navbar>
         <Switch>
           <Route exact path="/">
             <Login emailId={emailId}></Login>
           </Route>
-          <Route exact path="/home">
+          {/* <Route exact path="/home">
             <Navbar
               userId={userId}
               emailId={emailId}
               profileName={profileName}
               profilePhoto={profilePhoto}
             />
-          </Route>
+          </Route> */}
           <Route exact path="/student">
             <StudentExams
               userId={userId}

@@ -54,12 +54,6 @@ const TeacherExams = (props) => {
 
   return (
     <div className="teacherExam">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
-
       {/* <Container fluid className="project-section"> */}
       <Container>
         <div id="teacher-header" className="d-flex justify-content-md-center">

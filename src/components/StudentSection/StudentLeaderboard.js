@@ -98,11 +98,6 @@ const StudentLeaderboard = (props) => {
 
   return (
     <div className="studentLeaderboard">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       <div className="table-responsive">
         <div style={{ marginTop: "20px" }}>
           <table className="styled-table">

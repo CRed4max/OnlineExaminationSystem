@@ -79,12 +79,6 @@ const StudentExams = (props) => {
 
   return (
     <div id="paperhai" className="studentExam">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
-
       <Container>
         <div id="student-header" className="d-flex justify-content-md-center">
           <div>

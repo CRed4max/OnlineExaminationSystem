@@ -48,11 +48,6 @@ const ExamResponse = (props) => {
 
   return (
     <div id="response" className="row justify-content-md-center">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       {/* {console.log(array, state)} */}
 
       <div className="response1">

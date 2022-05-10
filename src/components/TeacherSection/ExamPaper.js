@@ -117,11 +117,6 @@ const ExamPaper = (props) => {
   //   console.log(array);
   return (
     <div id="examPaper" className="row justify-content-md-center">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       {/* <QuestionRadio></QuestionRadio> */}
       {/* {console.log(array, state)} */}
 

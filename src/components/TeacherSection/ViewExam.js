@@ -98,11 +98,6 @@ const ViewExam = (props) => {
 
   return (
     <div id="viewExam" className="row justify-content-md-center">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       {/* {console.log(array, state)} */}
 
       <div id="view-header" className="d-flex justify-content-md-center">

@@ -8,11 +8,6 @@ const ExamInstructions = (props) => {
   const { examId, userId } = useParams();
   return (
     <div>
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       <div className="d-flex justify-content-md-center my-2">
         {/* <div className="col-2"></div> */}
         <div className="instruction1 bg-light">

@@ -107,11 +107,6 @@ const AddEditQuestion = (props) => {
 
   return (
     <div className="addEditQuestion">
-      <Navbar
-        emailId={props.emailId}
-        profileName={props.profileName}
-        profilePhoto={props.profilePhoto}
-      ></Navbar>
       <section className="d-flex justify-content-md-center">
 
       <form onSubmit={submitted}>
