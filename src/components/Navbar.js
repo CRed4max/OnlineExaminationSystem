@@ -12,6 +12,7 @@ import { Link, Router } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "../style/Navbar.css";
 import { IconContext } from "react-icons";
+import UserOptions from "./UserOptions";
 
 function Navbar(props) {
   // const provider = new GoogleAuthProvider();
@@ -22,48 +23,56 @@ function Navbar(props) {
   // var displayName, uid, photoURL;
   const history = useHistory();
 
+  const [isUser, setisUser] = useState(null);
+
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       console.log(user);
-  //       uid = user.uid;
-  //       photoURL = user.photoURL;
-  //       displayName = user.displayName;
-  //       console.log(photoURL);
-  //     } else {
-  //       console.log("no user is currently signed in");
-  //       history.push("/");
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setisUser(user);
+        console.log(user);
+        uid = user.uid;
+        photoURL = user.photoURL;
+        displayName = user.displayName;
+        console.log(photoURL);
+      } else {
+        console.log("no user is currently signed in");
+        history.push("/");
+      }
+    });
+  }, [auth]);
 
-  return (
+  return !isUser ? (
+    <></>
+  ) : (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="sticky-top">
           <div className="navbar">
-            <Link to="#" className="menu-bars">
+            {/* <Link to="#" className="menu-bars col-1.5">
               <FaIcons.FaBars onClick={showSidebar} />
-            </Link>
-            <h1 id="name" className="col-8 justify-content-md-center">
+              
+            </Link> */}
+            {/* <h1 id="name" className="col-8 justify-content-md-center">
               <img className="col-2 justify-content-md-center" src={photoURL} />
               {displayName}
-            </h1>
+            </h1> */}
             {/* <img className="col-2 justify-content-md-center" src={photoURL} /> */}
-            <Link to="/">
+            {/* <Link to="/">
               <button
                 className="sign-out col-1.5 justify-content-md-center"
                 onClick={() => auth.signOut()}
               >
                 Sign Out
               </button>
-            </Link>
+            </Link> */}
+
+            <UserOptions image={photoURL} auth={auth} />
           </div>
         </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        {/* <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
@@ -81,7 +90,7 @@ function Navbar(props) {
               );
             })}
           </ul>
-        </nav>
+        </nav> */}
       </IconContext.Provider>
     </>
   );

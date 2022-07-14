@@ -1,37 +1,3 @@
-.teacherExam .styled-table {
-  border-collapse: collapse;
-  background-color: #cef0d8;
-  margin: auto;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  max-width: 1000px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin-bottom: 10px;
-}
-
-.teacherExam .styled-table thead tr {
-  background-color: #062916;
-  color: #ffffff;
-  text-align: left;
-}
-
-.teacherExam .styled-table th,
-.teacherExam .styled-table td {
-  padding: 12px 15px;
-}
-
-.teacherExam .styled-table tbody tr {
-  border-bottom: 4px solid #dddddd;
-}
-
-/* .teacherExam .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-} */
-
-.teacherExam .styled-table tbody tr:last-of-type {
-  border-bottom: 4px solid #050806;
-}
-
 .teacherExam .btn {
   border: none;
   color: white;
@@ -45,18 +11,6 @@
   cursor: pointer;
 }
 
-.teacherExam .btn-edit {
-  background-color: #008cba;
-}
-
-.teacherExam .btn-delete {
-  background-color: #f44336;
-}
-
-.teacherExam .btn-view {
-  background-color: #eeffd3;
-  color: black;
-}
 
 .teacherExam .btn-create {
   background-color: #065a06;
@@ -82,40 +36,21 @@
 }
 
 
-/* .ExamCards {
-  background-image: url(../images/sky.jpg);
-} */
-
 .project-section {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
+  /* background-image: var(--section-background-color) !important; */
   /* background-color: white !important; */
 }
 
-.project-card {
+.card {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
   padding-left: 25px !important;
   padding-right: 25px !important;
   height: auto !important;
-  /* background-image: url(../images/sky.jpg) !important; */
+  border: none !important;
   
   /* background-color: white; */
-}
-
-.project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(162, 42, 202, 0.459) !important;
-  color: black !important;
-  /* background-color: transparent !important; */
-  opacity: 0.5 !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
-  background-color: transparent !important;
-}
-.project-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
 }

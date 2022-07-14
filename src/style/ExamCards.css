@@ -1,0 +1,25 @@
+  .card-view {
+    box-shadow: 0 4px 5px 3px rgba(162, 42, 202, 0.459) !important;
+    color: black !important;
+    background-color: rgb(239, 255, 203) !important;
+    /* opacity: 0.5 !important; */
+    transition: all 0.5s ease 0s !important;
+    height: 100% !important;
+    border-radius: 50%;
+  }
+  .card-view:hover {
+    transform: scale(1.02) !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  }
+
+  .Card.Text {
+    text-align: justify;
+  }
+
+  .btn1 {
+    background-color: greenyellow;
+  }
+  .btn2 {
+    background-color: rgb(255, 109, 47);
+  }

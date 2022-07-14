@@ -1,0 +1,7 @@
+.middleSection {
+    /* position: relative !important; */
+    height: 100px;
+    /* padding-top: 150px !important;
+    padding-bottom: 30px !important; */
+    background-image: var(--section-background-color) !important;
+  }

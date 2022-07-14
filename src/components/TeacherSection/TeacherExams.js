@@ -69,7 +69,7 @@ const TeacherExams = (props) => {
           <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
             {Object.keys(examsData).map((id, index) => {
               return (
-                <Col md={4} className="project-card">
+                <Col md={4} className="card">
                   <ExamCards
                     //   imgPath={coding}
 

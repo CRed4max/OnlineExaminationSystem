@@ -1,47 +1,49 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { BiLinkExternal } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import "../../style/ExamCards.css";
 
 function ExamCards(props) {
   return (
-    <Card className="project-card-view">
+    <Card className="card-view">
       {/* <Card.Img variant="top" src={props.imgPath} alt="card-img" /> */}
       {/* <Card.Img variant="top" style={{height: 200, width: 400 }} src={props.imgPath} alt="card-img" /> */}
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          Exam Name: {props.examName}
+        <Card.Text>
+        Exam Name : {" "}
+          <span style={{ color: "blue" }}>{props.examName}</span>
         </Card.Text>
-        <Card.Text style={{ textAlign: "justify" }}>
-          Exam Id: {props.examId}
+        <Card.Text>
+          Exam Id: {" "}
+          <span style={{ color: "blue" }}>{props.examId}</span>
         </Card.Text>
-        <Card.Text style={{ textAlign: "justify" }}>
-          Exam Password: {props.examPass}
+        <Card.Text>
+          Exam Password: {" "}
+          <span style={{ color: "blue" }}>{props.examPass}</span>
         </Card.Text>
-        <Card.Text style={{ textAlign: "justify" }}>
-          Start Time: {props.startTime.substring(0, 10)} {props.startTime.substring(11, 16)}
+        <Card.Text>
+          Start Time: {" "}
+          <span style={{ color: "green" }}>{props.startTime.substring(0, 10)}{" "}
+          {props.startTime.substring(11, 16)}</span>
         </Card.Text>
-        <Card.Text style={{ textAlign: "justify" }}>
-          End Time: {props.endTime.substring(0, 10)} {props.endTime.substring(11, 16)}
+        <Card.Text>
+          End Time: {" "}
+          <span style={{ color: "red" }}>{props.endTime.substring(0, 10)}{" "}
+          {props.endTime.substring(11, 16)}</span>
         </Card.Text>
 
-        {/* <Button variant="primary" href={props.viewExam} target="_blank">
-            <BiLinkExternal /> &nbsp;
-            View Exam
-            <Link to={props.viewExam}>View Exam</Link>
-        </Button> */}
 
         <Link to={props.viewExam}>
-            <Button variant="primary" >
-                <span>ViewExam</span>
-            </Button>
+          <Button variant="primary">
+            <span>ViewExam</span>
+          </Button>
         </Link>
         <Link to={props.leaderboard}>
-            <Button variant="primary" >
-                <span>Leaderboard</span>
-            </Button>
+          <Button variant="primary">
+            <span>Leaderboard</span>
+          </Button>
         </Link>
 
         {/* <Button variant="primary" href={props.link} target="_blank">
