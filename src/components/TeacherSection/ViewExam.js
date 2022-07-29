@@ -69,12 +69,16 @@ const ViewExam = (props) => {
 
       set(dbref, null);
 
+      var arr = [];
+
       dbref = ref(db, "questions/" + examId);
       var data = null;
       onValue(
         dbref,
         (snap) => {
           data = snap.val();
+          Object.keys(data).map((id, index) => arr.push(id));
+          setArray(arr);
         },
         {
           onlyOnce: true,
@@ -82,7 +86,8 @@ const ViewExam = (props) => {
       );
 
       setTimeout(() => {
-        setState(data);
+        setArray(arr);
+        // setState(data);
         // console.log(temp);
       }, 2000);
     }
@@ -136,9 +141,12 @@ const ViewExam = (props) => {
                   Q{indexRed + 1}. {state[array[indexRed]].questionStatement}
                 </h3>
                 <div>
-                  <span>a. {state[array[indexRed]].option1}</span><br></br>
-                  <span>b. {state[array[indexRed]].option2}</span><br></br>
-                  <span>c. {state[array[indexRed]].option3}</span><br></br>
+                  <span>a. {state[array[indexRed]].option1}</span>
+                  <br></br>
+                  <span>b. {state[array[indexRed]].option2}</span>
+                  <br></br>
+                  <span>c. {state[array[indexRed]].option3}</span>
+                  <br></br>
                   <span>d. {state[array[indexRed]].option4}</span>
                 </div>
                 <li>
